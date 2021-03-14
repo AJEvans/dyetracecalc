@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Calculator
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Calculator
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Io.Github.AJEvans.DyeTraceCalc.Calc.Calculator">
+  
+  
+  <h1 id="Io_Github_AJEvans_DyeTraceCalc_Calc_Calculator" data-uid="Io.Github.AJEvans.DyeTraceCalc.Calc.Calculator" class="text-break">Class Calculator
+  </h1>
+  <div class="markdown level0 summary"><p>Core processing class. Calculates dye dispersion coefficients.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Calculator</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Io.Github.AJEvans.DyeTraceCalc.Calc.html">Io.Github.AJEvans.DyeTraceCalc.Calc</a></h6>
+  <h6><strong>Assembly</strong>: DyeTraceCalcMvc.dll</h6>
+  <h5 id="Io_Github_AJEvans_DyeTraceCalc_Calc_Calculator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Calculator</code></pre>
+  </div>
+  <h5 id="Io_Github_AJEvans_DyeTraceCalc_Calc_Calculator_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This does the work of converting the parameters from the database and/or
+user into answers.
+It calculates values associated with the dispirsion of a cloud of dye as it travels through a
+water system. 'Time one' is the time to reach half the peak value in minutes,
+'time two' is the time for it to fall back to half the peak value after the peak
+has passed. The output includes the estimate of the peak time and the dispersion
+coefficient. Basically it estimates the diffusivity iteratively
+until it stabilizes within a tolerance. For more details,
+see the associated website (/Views/Home/Index.cshtml)
+This is a direct port of Java code written by me in 1998 for Dr Mike Crabtree's PhD work
+in Iceland (<a href="https://www.sheffield.ac.uk/economics/staff/professional/mike-crabtree">https://www.sheffield.ac.uk/economics/staff/professional/mike-crabtree</a>). It has
+to be said that I haven't looked at it since, and one would
+hope there are better ways of calculating this now. Before using it in a real situation
+I'd take time to double check the calculations.</p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Io_Github_AJEvans_DyeTraceCalc_Calc_Calculator_GetResults_" data-uid="Io.Github.AJEvans.DyeTraceCalc.Calc.Calculator.GetResults*"></a>
+  <h4 id="Io_Github_AJEvans_DyeTraceCalc_Calc_Calculator_GetResults_System_Decimal_System_Decimal_System_Int32_System_Int32_System_Decimal_System_Boolean_" data-uid="Io.Github.AJEvans.DyeTraceCalc.Calc.Calculator.GetResults(System.Decimal,System.Decimal,System.Int32,System.Int32,System.Decimal,System.Boolean)">GetResults(Decimal, Decimal, Int32, Int32, Decimal, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Public access to the functionality of this class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (string Time, string Dispersion) GetResults(decimal increment, decimal tolerance, int time1, int time2, decimal distance, bool optimise)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">increment</span></td>
+        <td><p>Time increment to use in calculations.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">tolerance</span></td>
+        <td><p>Tolerance controlling when iterative calculations are assumed complete.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">time1</span></td>
+        <td><p>The time to reach half the peak value in minutes.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">time2</span></td>
+        <td><p>The time to reach half the peak value again in minutes after the peak has passed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>Distance between dye input and measurements of concentration.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">optimise</span></td>
+        <td><p>Whether to make a one-off estimate or iterate more.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td><p>A tuple containing:
+Time: An estimate of the peak concentration time.
+Dispersion: An estimate of the dispersion coefficient.
+Or, if the result doesn't settle, a warning that more than 300 iterations have occurred.
+It should be noted that this might be adjusted - back when this was written, 300 iterations took
+a long time!</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Io_Github_AJEvans_DyeTraceCalc_Calc_Calculator_GetResults_System_Decimal_System_Decimal_System_Int32_System_Int32_System_Decimal_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The output includes the estimate of the peak time and the dispersion
+coefficient. For more details, see the associated website (/Views/Home/Index.cshtml).</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

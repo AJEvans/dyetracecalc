@@ -1,0 +1,294 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/Programming/C#/Projects/DyeTraceCalcCode/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DyeTraceCalcMvc.Controllers.HomeController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DyeTraceCalcMvc.Controllers.HomeController.html",
+          "hash": "nxZM8ls5Ha9yvTWdul9v+Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DyeTraceCalcMvc.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DyeTraceCalcMvc.Controllers.html",
+          "hash": "yVBPvk9ab5qy1pQKO9Nnzg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DyeTraceCalcMvc.Models.ErrorViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DyeTraceCalcMvc.Models.ErrorViewModel.html",
+          "hash": "0gVGiNf48ZB9KSfg+wGaOw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DyeTraceCalcMvc.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DyeTraceCalcMvc.Models.html",
+          "hash": "hewaWgwHhfr6r8lD/qfxgQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DyeTraceCalcMvc.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DyeTraceCalcMvc.Program.html",
+          "hash": "ytydQgtP91rQS4wxp1paUw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DyeTraceCalcMvc.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DyeTraceCalcMvc.Startup.html",
+          "hash": "cXKXm5tTxLiv6zUJ/2A5Qw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DyeTraceCalcMvc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DyeTraceCalcMvc.html",
+          "hash": "adiyHGYGnzej1SFAfDuZxw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Calc.Calculator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Calc.Calculator.html",
+          "hash": "Uu7aSkmKk3rMUqhVUffJXw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Calc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Calc.html",
+          "hash": "lDCJOXSVBlRxMk4FpysFFw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Models.HomeIndexViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Models.HomeIndexViewModel.html",
+          "hash": "G7jgwhPFIGYb+SGz7uRSqw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Models.html",
+          "hash": "cjD9chNgEg5rGIN7ZsgF/Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Shared.Parameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Shared.Parameter.html",
+          "hash": "mG1uv2desaEW1rH0skXITw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Shared.ParametersDB.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Shared.ParametersDB.html",
+          "hash": "rMOMP+VLBEkJXAaRSlS5hA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Shared.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Io.Github.AJEvans.DyeTraceCalc.Shared.html",
+          "hash": "HdphV6D0QjTaOBxIdLDiJg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "g6aLJZPyBRyzA7gt7Kqg8w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "tzd6iBrSZ632HK4O7mnjdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "hyRBmoRC3xtyZ/4EYxKXrA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "AZdB7WUnjzN0SbtQ9ZfakQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "+rHUkRZHZRi5gd1aTU6lJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 14,
+          "skipped_file_count": 14
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
