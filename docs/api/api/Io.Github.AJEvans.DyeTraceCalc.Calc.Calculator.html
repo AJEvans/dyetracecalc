@@ -83,16 +83,17 @@
   <h5 id="Io_Github_AJEvans_DyeTraceCalc_Calc_Calculator_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>This does the work of converting the parameters from the database and/or
 user into answers.
-It calculates values associated with the dispirsion of a cloud of dye as it travels through a
+It calculates values associated with the dispersion of a cloud of dye as it travels through a
 water system. 'Time one' is the time to reach half the peak value in minutes,
-'time two' is the time for it to fall back to half the peak value after the peak
+'time two' is the time from the start for it to fall back to half the peak value after the peak
 has passed. The output includes the estimate of the peak time and the dispersion
 coefficient. Basically it estimates the diffusivity iteratively
 until it stabilizes within a tolerance. For more details,
 see the associated website (/Views/Home/Index.cshtml)
 This is a direct port of Java code written by me in 1998 for Dr Mike Crabtree's PhD work
-in Iceland (<a href="https://www.sheffield.ac.uk/economics/staff/professional/mike-crabtree">https://www.sheffield.ac.uk/economics/staff/professional/mike-crabtree</a>). It has
-to be said that I haven't looked at it since, and one would
+in Iceland (<a href="https://www.sheffield.ac.uk/economics/staff/professional/mike-crabtree">https://www.sheffield.ac.uk/economics/staff/professional/mike-crabtree</a>). At the
+time it was based on a widely used Excel version which didn't optimise for a single result. It has
+to be said that I haven't looked at it since then, and one would
 hope there are better ways of calculating this now. Before using it in a real situation
 I'd take time to double check the calculations.</p>
 </div>
@@ -140,7 +141,7 @@ I'd take time to double check the calculations.</p>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">time2</span></td>
-        <td><p>The time to reach half the peak value again in minutes after the peak has passed.</p>
+        <td><p>The time from start to reach half the peak value again in minutes after the peak has passed.</p>
 </td>
       </tr>
       <tr>
@@ -152,7 +153,8 @@ I'd take time to double check the calculations.</p>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">optimise</span></td>
-        <td><p>Whether to make a one-off estimate or iterate more.</p>
+        <td><p>Whether to make a one-off estimate or return multiple results. Here, for ease of understanding, we set
+this to 'true' removing the option for outputting multiple results for bespoke averaging etc.</p>
 </td>
       </tr>
     </tbody>
@@ -170,10 +172,7 @@ I'd take time to double check the calculations.</p>
         <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
         <td><p>A tuple containing:
 Time: An estimate of the peak concentration time.
-Dispersion: An estimate of the dispersion coefficient.
-Or, if the result doesn't settle, a warning that more than 300 iterations have occurred.
-It should be noted that this might be adjusted - back when this was written, 300 iterations took
-a long time!</p>
+Dispersion: An estimate of the dispersion coefficient.</p>
 </td>
       </tr>
     </tbody>

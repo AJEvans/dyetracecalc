@@ -38,8 +38,6 @@
     <li class="active"><a href="#"><span class="none"></span>Introduction</a></li>
     <li><a href="code.html" title="Code & UML"><span class="none"></span>Code & UML</a></li>
     <li><a href="api/api/index.html" title="API docs"><span class="none"></span>API docs</a></li>
-    <li><a href="dyetracecalc/archive/main.zip" title="Download Zip"><span class="none"></span>Download Zip</a></li>
-    <li><a href="./" title="Repository"><span class="none"></span>Repository</a></li>
   </ul>
           </nav>
           <div class="well sidebar-nav">
@@ -55,28 +53,33 @@
         <main id="bodyColumn"  class="span10" >
 <section>
 <h2><a name="Introduction"></a>Introduction</h2>
-<p>This code builds a website which calculates dye tracing information. It demonstrates the C# Model-View-Controller (MVC) framework.</p>
-<p>Although you&#x2019;ll need to download and run the project to see the site working, here&#x2019;s <a href="mockup.html">a mockup of the page</a>.</p>
+<p>This code builds a website which calculates dye tracing dispersion coefficients. It demonstrates the C# Model-View-Controller (MVC) framework. It builds a website with a form which is populated with parameters from a database. The form can be adjusted by the user and then submitted to calculate a dispersion coefficient.</p>
+<p>Although you&#x2019;ll need to download and run the project to see the site working, here&#x2019;s <a href="images/screenshot.jpeg">a screenshot of the page</a>.</p>
 <p>&#xa0;</p><section>
 <h3><a name="Building_and_testing_the_source_code"></a>Building and testing the source code</h3>
 <p>To run the site:</p>
 <ul>
 
-<li>Download the repo and unzip it on your machine.</li>
-<li>Install the latest .Net libraries (this code uses .Net 5; C# 9).</li>
-<li>Download and install Visual Studio (VS) Code.</li>
-<li>Install the C# for VS Code extension from Microsoft. You may also find the MSBuild tools useful.</li>
-<li>Open up the Workspace file <code>dyetracecalc.code-workspace</code></li>
-<li>Open a terminal in VS Code.</li>
-<li>At the terminal change directory (cd command) to the <code>DyeTraceCalcMvc</code> directory.</li>
+<li>Download the <a class="externalLink" href="https://github.com/AJEvans/dyetracecalc/archive/main.zip">the repo as a zip</a> and unzip it on your machine.</li>
+<li>Download and install <a class="externalLink" href="http://code.visualstudio.com/">Visual Studio (VS) Code</a>.</li>
+<li>Install the latest <a class="externalLink" href="http://www.microsoft.com/net/download/">.Net Software Development Kit (SDK)</a> (this code uses .Net 5; C# 9).</li>
+<li>Open VS Code and install the C# for VS Code extension from Microsoft. You may also find the MSBuild tools useful.</li>
+<li>In VS Code, go <code>File</code> -&gt; <code>Open Workspace...</code> and open the file <code>dyetracecalc.code-workspace</code>, which should be in the unzipped directory.</li>
+<li>Open a terminal in VS Code (<code>Terminal</code> -&gt; <code>New Terminal</code>).</li>
+<li>At the terminal change directory (cd command) to the <code>DyeTraceCalcMvc</code> directory, e.g. <code>cd c:\downloads\DyeTraceCalc\DyeTraceCalcMvc</code>.</li>
 <li>Enter <code>dotnet run</code>.</li>
 <li>Open a web browser with the URL <code>http://localhost:5000</code></li>
-</ul>
-<p>If the browser complains of security issues it may be automatically redirecting to the secure https version; you may need to install a developers&#x2019; certificate: at the terminal, enter</p>
+</ul><section>
+<h4><a name="Troubleshooting"></a>Troubleshooting</h4>
+<p>If the site doesn&#x2019;t run, you may need to rebuild the code to download libraries. At the Terminal prompt, type:</p>
+<p><code>dotnet build</code></p>
+<p>Then try running the code again.</p>
+<p>If your browser complains of security issues it may be automatically redirecting to the secure https version; you may need to install a developers&#x2019; certificate: at the terminal, enter</p>
 <p><code>dotnet dev--certs https --trust</code></p>
 <p>Close and reopen your web browser.</p>
 <p>&#xa0;</p>
-<p>Before using this code to run actual dye tracing experiments, please note the caveats in the comments for the file <code>/DyeTraceCalcMvc/Calc/Calculator.cs</code>.</p></section></section>
+<p>Before using this code to run actual dye tracing experiments, please note the caveats in the comments for the file <code>/DyeTraceCalcMvc/Calc/Calculator.cs</code>.</p>
+<p>The full repo for the source is <a class="externalLink" href="https://github.com/AJEvans/dyetracecalc/">on GitHub</a> if you need it.</p></section></section></section>
         </main>
       </div>
     </div>

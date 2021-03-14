@@ -38,8 +38,6 @@
     <li><a href="index.html" title="Introduction"><span class="none"></span>Introduction</a></li>
     <li class="active"><a href="#"><span class="none"></span>Code & UML</a></li>
     <li><a href="api/api/index.html" title="API docs"><span class="none"></span>API docs</a></li>
-    <li><a href="dyetracecalc/archive/main.zip" title="Download Zip"><span class="none"></span>Download Zip</a></li>
-    <li><a href="./" title="Repository"><span class="none"></span>Repository</a></li>
   </ul>
           </nav>
           <div class="well sidebar-nav">
@@ -55,13 +53,28 @@
         <main id="bodyColumn"  class="span10" >
 <section>
 <h2><a name="Code_.26_UML"></a>Code &amp; UML</h2>
-<p>For the sake of demonstrating database connectivity, the parameters, which can be changed by the user, are stored in an <a class="externalLink" href="https://www.sqlite.org/index.html">SQLite database</a>. The code uses scaffold Entity Framework (EF Core) classes to communicate with the database.</p>
-<p>I haven&#x2019;t implemented authentication or demanded httpd to save having to log in or add a developers&#x2019; certificate to look at the site, but this is easy enough to add.</p>
+<p>For the sake of demonstrating database connectivity, the parameters, which can be changed by the user, are stored in an <a class="externalLink" href="https://www.sqlite.org/index.html">SQLite database</a>. The code uses scaffold Entity Framework (EF Core) classes to communicate with the database. Usually we&#x2019;d leave the default parameters in the database, but as a demonstration of user inputs through to the database, they&#x2019;re updated with each use.</p>
+<p>I haven&#x2019;t implemented authentication or demanded https to save having to log in or add a developers&#x2019; certificate to look at the site, but this is easy enough to add.</p>
 <p>Before using this code to run actual dye tracing experiments, please note the caveats in the comments for the file <code>/DyeTraceCalcMvc/Calc/Calculator.cs</code>.</p>
 <p>&#xa0;</p>
-<p>MVC involves a great many files. The following sequence diagram outlines the important directly coded files and how they interact.</p>
+<p>The following sequence diagram gives an outline of the major directly coded files in the system and how they interact to implement the Model-View-Controller (MVC) architecture. The Controller is <b>HomeController</b>, the Model <b>ModelIndexViewModel</b>, and the View is composed from the <b>index.cshtml</b>, <b>_Layout.cshtml</b>, <b>_ViewStart.cshtml</b>, and <b>_ViewImports.cshtml</b> files.</p>
 <p>&#xa0;</p>
-<p><img src="images/sequence.jpeg" alt="UML Sequence diagram" title="UML Sequence diagram" /></p></section>
+<p><img src="images/sequence.jpeg" alt="UML Sequence diagram" title="UML Sequence diagram" /></p>
+<p>The location of chief files are:</p>
+<ul>
+
+<li><code>Program.cs</code>: Main class starting website.</li>
+<li><code>Startup.cs</code>: Class that registers services (e.g. the database) and fixes URL format so URLs reference the Controller to use and the Actions they should take.</li>
+<li><code>DyeTraceCalcMvc\Controllers\HomeController.cs</code>: Controller that builds the data model, and interprets Actions requested in URLs and fires appropriate View methods.</li>
+<li><code>ParameterDBContextLib\ParametersDB.cs</code>: Library file representing the &#x201c;parametersdb&#x201d; database.</li>
+<li><code>ParameterDBEntitiesLib\Parameter.cs</code>: Library file representing &#x201c;Parameters&#x201d; database table.</li>
+<li><code>DyeTraceCalcMvc\Models\HomeIndexViewModel.cs</code>: Model code to contain representations of the database data as <code>Parameter</code> objects.</li>
+<li><code>DyeTraceCalcMvc\Views\Home\Index.cshtml</code>: Partial View webpage containing data from the model as a form so users can change it.</li>
+<li><code>DyeTraceCalcMvc\Views\Shared\_Layout.cshtml</code>: Overarching webpage template used on all pages to embed partial pages.</li>
+<li><code>DyeTraceCalcMvc\Home\_ViewStart.cshtml</code>: Dictates use of <code>_Layout.cshtml</code> overarching template.</li>
+<li><code>DyeTraceCalcMvc\Home\_ViewImports.cshtml</code>: Imports core code and models into other <code>.cshtml</code> pages.</li>
+<li><code>DyeTraceCalcMvc\Calc\Calculator.cs</code>: Code to calculate results called by Controller, which feeds it form data.</li>
+</ul></section>
         </main>
       </div>
     </div>
