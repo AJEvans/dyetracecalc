@@ -1,6 +1,8 @@
 # Prerequisites
 *.d
 
+sequence.dia.autosave
+
 # Object files
 *.o
 *.ko
