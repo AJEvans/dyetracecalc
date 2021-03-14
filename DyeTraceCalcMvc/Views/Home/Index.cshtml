@@ -1,0 +1,91 @@
+﻿@model Io.Github.AJEvans.DyeTraceCalc.Models.HomeIndexViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+<!-- This HTML injected into /Views/Shared/_Layout.cshtml -->
+<!-- Model source listed above. Interacts with /Controllers/HomeController.cs -->
+<div style="text-left;" class=clearfix>
+
+<img src="dye.jpg" style="float:right;margin-left:20px;border: 1px solid #cccccc;padding:5px;">
+
+<p>    
+This page calculates values associated with the dispersion of a cloud of biodegradable dye as it travels through a water system; 
+most notably the diffusion coefficient. It takes in values associated with concentration measurements at some 
+distance downstream from the point the dye is put in. In combination with the concentration of dye appearing over time, the diffusion coefficient can 
+give insights into the water system. This is important, for example, in glacial water systems where the network of internal streams  
+between water on the surface and a river exiting from the front of the glacier is largely inaccessible but critical to 
+glacier stability. 
+</p>
+
+<div>
+<p>
+Change the following values (see 'details'):
+</p>
+    <form action="/Home/Calc">
+    <input style="margin-bottom:5px;" type="text" name="Increment" value="@Model.parameters[0].Increment" />&nbsp;&nbsp;Time increment to use in minutes.<br />
+    <input style="margin-bottom:5px;" type="text" name="Tolerance" value="@Model.parameters[0].Tolerance" />&nbsp;&nbsp;Tolerance within which no change ends calculation.<br />
+    <input style="margin-bottom:5px;" type="text" name="TimeOne" value="@Model.parameters[0].TimeOne" />&nbsp;&nbsp;Time to reach half peak concentration.<br />
+    <input style="margin-bottom:5px;" type="text" name="TimeTwo" value="@Model.parameters[0].TimeTwo" />&nbsp;&nbsp;Time to fall back to half peak concentration.<br />
+    <input style="margin-bottom:5px;" type="text" name="Distance" value="@Model.parameters[0].Distance" />&nbsp;&nbsp;Distance downstream from input point.<br />
+    <input style="margin-top:15px; margin-bottom:15px;" type="submit" value="Calculate results"/><br />
+    
+    <p style="margin-top:10px; margin-bottom:5px;"><u>Current results:</u><br />
+    Estimate of peak concentration time: @Model.parameters[0].Time minutes
+    <br />
+    Dispersion coefficient: @Model.parameters[0].Dispersion</p>
+    </form>
+
+</div>
+
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>
+<div>
+<h5>Details:</h5>
+<p>
+Inputs: <em>Time to reach half peak concentration</em> is the time to reach half the peak concentration value in minutes; 
+<em>Time to fall back to half peak concentration</em> is the time since the start at which it falls back 
+to half the peak value after the peak has passed. <em>Time increment to use in minutes</em> is the time step used 
+in iterations of the calculation (see below) 
+and <em>Tolerance within which no change ends calculation</em> is similar to an accuracy level &ndash; the process is based around pairs of calculations which should 
+converge to a similar value, and if the two results 
+fall within this tolerance range of each other the algorithm stops. Setting these two latter values low will mean the answer 
+takes longer to generate but will be more accurate. In general, if unsure, leave these two parameters alone. 
+<em>Distance downstream from input point</em> is the distance from the input point at which the dye concentration is measured.
+</p>
+<p>
+Outputs: an estimate of the peak time which can be compared with field measurements for an indication of 
+accuracy, and the dispersion coefficient.   
+</p>
+<P>
+The coefficient is calculated by iteratively using times for the peak event between times one and two. 
+This time is placed into the equations for dispersion, one of which has 'time one' as a constant, the 
+other 'time two'. The true values of the coefficient and estimated peak time will occur when the iterated 
+peak time gives the same value for the coefficient in both equations.
+</P>
+<P>
+This is highly unlikely to occur, so, as noted above, there is a tolerance function, which is the amount the 
+coefficient is allowed to vary either side of one of the equation's values before it is equal to the other's value. 
+Essentially this sets the decimal places to which the coefficient is accurate.
+</P>
+<P>
+    For more information on this calculation, contact 
+    <A href="https://www.sheffield.ac.uk/economics/staff/professional/mike-crabtree">Dr Mike Crabtree</A>; the core of this software 
+    was originally written by <A href="https://ajevans.github.io/">Andy Evans</A> to support Mike's PhD work in Iceland, but was 
+    based on a well known Excel version.
+</P>
+
+</div>
+</div>

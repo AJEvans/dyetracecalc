@@ -2,6 +2,13 @@
 *.d
 
 sequence.dia.autosave
+.gitignore
+sequence.dia
+
+docfx_project/
+obj/
+bin/
+.vscode/
 
 # Object files
 *.o

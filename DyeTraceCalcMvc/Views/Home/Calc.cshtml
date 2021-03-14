@@ -1,0 +1,19 @@
+@model Io.Github.AJEvans.DyeTraceCalc.Models.HomeIndexViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form action="/Home/Calc">
+    <input type="text" name="Increment" value="@Model.parameters[0].Increment" /><br />
+    <input type="text" name="Tolerance" value="@Model.parameters[0].Tolerance" /><br />
+    <input type="text" name="TimeOne" value="@Model.parameters[0].TimeOne" /><br />
+    <input type="text" name="TimeTwo" value="@Model.parameters[0].TimeTwo" /><br />
+    <input type="text" name="Distance" value="@Model.parameters[0].Distance" /><br />
+    <input type="submit" /><br />
+    <p>Results:<br />@Model.parameters[0].Time<br />@Model.parameters[0].Dispersion</p>
+    </form>
+</div>
