@@ -35,13 +35,13 @@ Change the following values (see 'details'):
     <form action="/Home/Calc">
     <input style="margin-bottom:5px;" type="text" name="Increment" value="@Model.parameters[0].Increment" />&nbsp;&nbsp;Time increment to use in minutes.<br />
     <input style="margin-bottom:5px;" type="text" name="Tolerance" value="@Model.parameters[0].Tolerance" />&nbsp;&nbsp;Tolerance within which no change ends calculation.<br />
-    <input style="margin-bottom:5px;" type="text" name="TimeOne" value="@Model.parameters[0].TimeOne" />&nbsp;&nbsp;Time to reach half peak concentration.<br />
-    <input style="margin-bottom:5px;" type="text" name="TimeTwo" value="@Model.parameters[0].TimeTwo" />&nbsp;&nbsp;Time to fall back to half peak concentration.<br />
+    <input style="margin-bottom:5px;" type="text" name="TimeOne" value="@Model.parameters[0].TimeOne" />&nbsp;&nbsp;Time to reach half peak concentration in full minutes.<br />
+    <input style="margin-bottom:5px;" type="text" name="TimeTwo" value="@Model.parameters[0].TimeTwo" />&nbsp;&nbsp;Time to fall back to half peak concentration in full minutes.<br />
     <input style="margin-bottom:5px;" type="text" name="Distance" value="@Model.parameters[0].Distance" />&nbsp;&nbsp;Distance downstream from input point.<br />
     <input style="margin-top:15px; margin-bottom:15px;" type="submit" value="Calculate results"/><br />
     
     <p style="margin-top:10px; margin-bottom:5px;"><u>Current results:</u><br />
-    Estimate of peak concentration time: @Model.parameters[0].Time minutes
+    Estimate of peak concentration time: @Model.parameters[0].Time 
     <br />
     Dispersion coefficient: @Model.parameters[0].Dispersion</p>
     </form>
@@ -53,6 +53,13 @@ Change the following values (see 'details'):
 <hr />
 <p>&nbsp;</p>
 <div>
+<h5>Troubleshooting:</h5>    
+<p>
+The algorithm doesn't always converge to generate results. If you get a message saying as much, try varying the 
+times to reach half peak by one up or down. It won't significantly affect the result, but is usually enough to 
+kick the algorithm into convergence.    
+</p>
+
 <h5>Details:</h5>
 <p>
 Inputs: <em>Time to reach half peak concentration</em> is the time to reach half the peak concentration value in minutes; 

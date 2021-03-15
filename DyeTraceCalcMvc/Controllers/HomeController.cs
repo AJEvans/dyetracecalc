@@ -69,6 +69,27 @@ namespace DyeTraceCalcMvc.Controllers
         string Distance)
         { 
 
+            if ((Increment == null) || (Increment == "")) {Increment = "0.1";}
+            if ((Tolerance == null) || (Tolerance == "")) {Tolerance = "0.01";}
+            if ((TimeOne == null) || (TimeOne == "")) {TimeOne = "1000";}
+            if ((TimeTwo == null) || (TimeTwo == "")) {TimeTwo = "1500";}
+            if ((Distance == null)|| (Distance == "")) {Distance = "700";}
+
+            // Don't want any negatives.
+            Increment = Increment.Trim().Replace("-","");
+            Tolerance = Tolerance.Trim().Replace("-","");
+            TimeOne = TimeOne.Trim().Replace("-","");
+            // No decimals for time.
+            if (TimeOne.Contains(".")) {
+                TimeOne = TimeOne.Remove(TimeOne.IndexOf("."));
+            }
+            TimeTwo = TimeTwo.Trim().Replace("-","");
+            if (TimeTwo.Contains(".")) {
+                TimeTwo = TimeTwo.Remove(TimeTwo.IndexOf("."));
+            }
+            Distance = Distance.Trim().Replace("-","");
+            
+
             if (ModelState.IsValid)
             {
                 // Model founded around Entity Framework representation of 
@@ -81,13 +102,29 @@ namespace DyeTraceCalcMvc.Controllers
                 // Update model EF with values from the web form.   
                 // Note that there's only one record/row in the database, 
                 // hence use of [0].
-                model.parameters[0].PrimaryKey = 1;
-                model.parameters[0].Increment =  decimal.Parse(Increment);
-                model.parameters[0].Tolerance = decimal.Parse(Tolerance);
-                model.parameters[0].TimeOne = int.Parse(TimeOne);
-                model.parameters[0].TimeTwo = int.Parse(TimeTwo);
-                model.parameters[0].Distance = decimal.Parse(Distance);
-
+                try
+                {
+                    model.parameters[0].PrimaryKey = 1;
+                    model.parameters[0].Increment =  decimal.Parse(Increment);
+                    model.parameters[0].Tolerance = decimal.Parse(Tolerance);
+                    model.parameters[0].TimeOne = int.Parse(TimeOne);
+                    model.parameters[0].TimeTwo = int.Parse(TimeTwo);
+                    model.parameters[0].Distance = decimal.Parse(Distance);
+                    // TimeOne should be before TimeTwo.
+                    if (model.parameters[0].TimeOne >  model.parameters[0].TimeTwo) 
+                    {
+                        int temp = model.parameters[0].TimeTwo;
+                        model.parameters[0].TimeTwo = model.parameters[0].TimeOne;
+                        model.parameters[0].TimeOne = temp;
+                    }
+                } 
+                catch 
+                {
+                    model.parameters[0].Time = "please be sure to enter numerical figures";
+                    model.parameters[0].Dispersion = "";
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
                 
                 // Possibly better implemented as a service?
                 var results = new Calculator().GetResults (
@@ -100,7 +137,7 @@ namespace DyeTraceCalcMvc.Controllers
 
                 // We store the result in the database to make it 
                 // easier to then extract into the index page.
-                model.parameters[0].Time = results.Time;
+                model.parameters[0].Time = results.Time + " minutes";
                 model.parameters[0].Dispersion = results.Dispersion;
 
                 // Update the database with new values that the  
@@ -120,29 +157,6 @@ namespace DyeTraceCalcMvc.Controllers
         }
 
 
-
-
-        /// <summary>
-        /// Not implemented here.
-        /// </summary>
-        /// <returns>An indication of the action's results.</returns>
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-
-        /// <summary>
-        /// Not implemented here.
-        /// </summary>
-        /// <returns>An indication of the action's results.</returns>
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-       
 
 
     }

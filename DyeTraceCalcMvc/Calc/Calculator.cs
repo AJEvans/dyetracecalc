@@ -51,7 +51,7 @@ namespace Io.Github.AJEvans.DyeTraceCalc.Calc
         /// <param name="time2">The time from start to reach half the peak value again in minutes after the peak has passed.</param>
         /// <param name="distance">Distance between dye input and measurements of concentration.</param>
         /// <param name="optimise">Whether to make a one-off estimate or return multiple results. Here, for ease of understanding, we set 
-        /// this to 'true' removing the option for outputting multiple results for bespoke averaging etc.</param>
+        /// this to 'false' removing the option for outputting multiple results for bespoke averaging etc.</param>
         /// <returns>
         /// A tuple containing:
         /// Time: An estimate of the peak concentration time.
@@ -64,21 +64,21 @@ namespace Io.Github.AJEvans.DyeTraceCalc.Calc
                                   decimal distance,
                                   bool optimise) {
 
-
             minTime = time1;
             maxTime = time2;
-            
+        
             int size;
-            
+
             if (!optimise) {
-                Iterate (time1, time2, increment, tolerance, distance);
+                Iterate (time1, time2, increment, tolerance, distance, optimise);
             } else {
                 bool firstTime = true;
                 for (;;) {
                     size = oldResults.Count;
                     oldResults = results;
                     results.Clear();
-                    Iterate (time1, time2, increment, tolerance, distance);
+                    Iterate (time1, time2, increment, tolerance, distance, optimise);
+                 
                     if ((results.Count == 0) || ((results.Count >= size ) && (!firstTime))) {
                         results = oldResults;
                         break;
@@ -94,7 +94,7 @@ namespace Io.Github.AJEvans.DyeTraceCalc.Calc
                     size = oldResults.Count;
                     oldResults = results;
                     results.Clear();
-                    Iterate (time1, time2, increment, tolerance,distance);
+                    Iterate (time1, time2, increment, tolerance,distance, optimise);
                     if ((results.Count == 0) || (results.Count >= size )) {
                         results = oldResults;
                         if (firstTime) {
@@ -107,7 +107,7 @@ namespace Io.Github.AJEvans.DyeTraceCalc.Calc
                 } 
 
             }
-            
+
             string a = "";
             string b = "";
 
@@ -128,7 +128,10 @@ namespace Io.Github.AJEvans.DyeTraceCalc.Calc
                     j += 2;
                 }
             //}
-            
+            if (results.Count == 0) {
+                a = "no results available for this combination of ";
+                b = "try varying a time by one minute (won't significantly affect calc)";
+            }
             results.Clear(); 
         
             // To implement the non-optimised version, return results.
@@ -147,24 +150,31 @@ namespace Io.Github.AJEvans.DyeTraceCalc.Calc
         /// <param name="increment">Time increment to use in calculations.</param>
         /// <param name="tolerance">Tolerance controlling when iterative calculations are assumed complete.</param>
         /// <param name="distance">Distance between dye input and measurements of concentration.</param>
+        /// <param name="optimise">Whether to make a one-off estimate or return multiple results. Here, for ease of understanding, we set 
+        /// this to 'false' removing the option for outputting multiple results for bespoke averaging etc.</param>
         private void Iterate (
                         decimal time1, 
                         decimal time2, 
                         decimal increment, 
                         decimal tolerance, 
-                        decimal distance) {
+                        decimal distance,
+                        bool optimise) {
         
             bool first;
             first = true;
             
-            
+            decimal peakEventTime = 0;
+            decimal left = 0;
+            decimal right = 0;
+
             for (int i = 0; i < ((maxTime - minTime) / increment); i++) {
                 
-                decimal peakEventTime = minTime + (increment * i); 
+                peakEventTime = minTime + (increment * i); 
                 
-                decimal left = Diffusivity (distance, peakEventTime, time1);
-                decimal right = Diffusivity (distance, peakEventTime, time2);
+                left = Diffusivity (distance, peakEventTime, time1);
+                right = Diffusivity (distance, peakEventTime, time2);
                 
+
                 if (left >= (right - tolerance)) {
                     if (first) {
                         minTime = peakEventTime;
@@ -179,6 +189,8 @@ namespace Io.Github.AJEvans.DyeTraceCalc.Calc
                     }
                 }
             }
+
+            
         } 
         
         

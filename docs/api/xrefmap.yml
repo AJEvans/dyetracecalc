@@ -48,19 +48,6 @@ references:
   isSpec: "True"
   fullName: DyeTraceCalcMvc.Controllers.HomeController.Calc
   nameWithType: HomeController.Calc
-- uid: DyeTraceCalcMvc.Controllers.HomeController.Error
-  name: Error()
-  href: api/DyeTraceCalcMvc.Controllers.HomeController.html#DyeTraceCalcMvc_Controllers_HomeController_Error
-  commentId: M:DyeTraceCalcMvc.Controllers.HomeController.Error
-  fullName: DyeTraceCalcMvc.Controllers.HomeController.Error()
-  nameWithType: HomeController.Error()
-- uid: DyeTraceCalcMvc.Controllers.HomeController.Error*
-  name: Error
-  href: api/DyeTraceCalcMvc.Controllers.HomeController.html#DyeTraceCalcMvc_Controllers_HomeController_Error_
-  commentId: Overload:DyeTraceCalcMvc.Controllers.HomeController.Error
-  isSpec: "True"
-  fullName: DyeTraceCalcMvc.Controllers.HomeController.Error
-  nameWithType: HomeController.Error
 - uid: DyeTraceCalcMvc.Controllers.HomeController.Index
   name: Index()
   href: api/DyeTraceCalcMvc.Controllers.HomeController.html#DyeTraceCalcMvc_Controllers_HomeController_Index
@@ -74,19 +61,6 @@ references:
   isSpec: "True"
   fullName: DyeTraceCalcMvc.Controllers.HomeController.Index
   nameWithType: HomeController.Index
-- uid: DyeTraceCalcMvc.Controllers.HomeController.Privacy
-  name: Privacy()
-  href: api/DyeTraceCalcMvc.Controllers.HomeController.html#DyeTraceCalcMvc_Controllers_HomeController_Privacy
-  commentId: M:DyeTraceCalcMvc.Controllers.HomeController.Privacy
-  fullName: DyeTraceCalcMvc.Controllers.HomeController.Privacy()
-  nameWithType: HomeController.Privacy()
-- uid: DyeTraceCalcMvc.Controllers.HomeController.Privacy*
-  name: Privacy
-  href: api/DyeTraceCalcMvc.Controllers.HomeController.html#DyeTraceCalcMvc_Controllers_HomeController_Privacy_
-  commentId: Overload:DyeTraceCalcMvc.Controllers.HomeController.Privacy
-  isSpec: "True"
-  fullName: DyeTraceCalcMvc.Controllers.HomeController.Privacy
-  nameWithType: HomeController.Privacy
 - uid: DyeTraceCalcMvc.Models
   name: DyeTraceCalcMvc.Models
   href: api/DyeTraceCalcMvc.Models.html
